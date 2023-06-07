@@ -1,0 +1,8 @@
+langchain==0.0.118
+gpt-index==0.4.24
+gpt_index==0.4.24
+llama-index==0.6.0a6
+gradio==3.32.0
+gradio_client==0.2.5
+python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+python-multipart==0.0.6
