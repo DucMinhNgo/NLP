@@ -1,16 +1,17 @@
 FROM python:3.9
 
-# Set the working directory
 WORKDIR /app
 
-# Copy the requirements file
-COPY requirements.txt .
+# COPY requirements.txt .
+RUN python -m pip install -U pip
+RUN pip install openai
+RUN pip install gpt_index==0.4.24
+RUN pip install langchain==0.0.118
+RUN pip install PyPDF2
+RUN pip install PyCryptodome
+RUN pip install gradio
+# RUN pip install --no-cache-dir -r requirements.txt
 
-# Install the Python dependencies
-RUN pip install -r requirements.txt
-
-# Copy the application code
 COPY . .
 
-# Specify the command to run the application
-CMD [ "python", "app.py" ]
+CMD ["python", "app.py"]
