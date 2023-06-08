@@ -10,7 +10,12 @@ RUN pip install langchain==0.0.118
 RUN pip install PyPDF2
 RUN pip install PyCryptodome
 RUN pip install gradio
+RUN pip install python-decouple
 # RUN pip install --no-cache-dir -r requirements.txt
+
+ENV HOME=/app
+
+RUN chown -R 7860:7860 /app
 
 COPY . .
 

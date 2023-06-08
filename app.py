@@ -3,8 +3,11 @@ from langchain.chat_models import ChatOpenAI
 import gradio as gr
 import sys
 import os
+from decouple import config
 
-os.environ["OPENAI_API_KEY"] = ''
+print (config('OPENAI_API_KEY'))
+
+os.environ["OPENAI_API_KEY"] = config('OPENAI_API_KEY')
 
 def construct_index(directory_path):
     max_input_size = 4096
@@ -35,4 +38,5 @@ iface = gr.Interface(fn=chatbot,
                      title="Custom-trained AI Chatbot")
 
 index = construct_index("docs")
-iface.launch(share=True)
+iface.launch(server_name="0.0.0.0", server_port=7860)
+# iface.launch(share=False)
